@@ -36,6 +36,10 @@ export default {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
+        success: { // Added success color
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+        },
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
@@ -68,6 +72,14 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: { // Ensured that if Tailwind expects direct font family definitions, CSS vars are correctly setup.
+        // The current setup uses @layer utilities and applies font-body/font-heading classes,
+        // which correctly use the CSS variables defined in index.css.
+        // No explicit fontFamily extension is needed here if using that CSS-driven approach.
+        // If you were to define them directly in Tailwind:
+        // sans: ['var(--font-body)', 'fallback-sans'],
+        // heading: ['var(--font-heading)', 'fallback-sans'],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
